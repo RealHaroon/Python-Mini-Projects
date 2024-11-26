@@ -111,3 +111,23 @@ A simple to-do list manager. Users can:
 
 ---
 
+# Guess The Number
+
+## Description
+A simple number-guessing game in Python. The program generates a random number between 1 and 10, and the player tries to guess it. After each guess, the program provides feedback if the guess was too high, too low, or correct. The game continues until the player guesses the correct number.
+
+## Features
+- Randomly generates a number between 1 and 10.
+- Provides feedback for each guess:
+  - "Too High" if the guess is greater than the random number.
+  - "Too Low" if the guess is smaller than the random number.
+- Tracks the number of guesses taken to guess correctly.
+
+## How to Run
+1. Open a terminal or command prompt.
+2. Save the code as a Python file, e.g., `guess_the_number.py`.
+3. Run the Python script:
+   ```bash
+   python guess_the_number.py
+
+
