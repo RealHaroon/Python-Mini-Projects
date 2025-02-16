@@ -23,7 +23,7 @@ def doneTask():
   u_inp=input("Done Task: ")
   try:
    with open("To-Do-List\\task.txt", "r", encoding="utf-8") as f:  
-    lines = f.readlines()  # Read all lines first
+    lines = f.readlines()  
    with open("To-Do-List\\task.txt", "w", encoding="utf-8") as f:  
     for line in lines:
         if u_inp in line:
@@ -38,7 +38,7 @@ def deleteTask():
    u_inp=input("Remove Task: ")
    try:
     with open("To-Do-List\\task.txt", "r") as f:
-      lines=f.readlines()  # Read all tasks
+      lines=f.readlines()
     with open("To-Do-List\\task.txt", "w") as f:
       for line in lines:
          if u_inp not in line:
