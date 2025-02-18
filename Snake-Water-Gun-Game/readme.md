@@ -1,4 +1,4 @@
-Here’s your `README.md` file in Markdown format for GitHub:  
+
 
 ```md
 # Snake, Water, Gun Game 🐍💧🔫
@@ -50,12 +50,8 @@ else:
    print("You Win")
 ```
 
-## 🔗 Contributing
-Feel free to fork and improve the game! 🚀
 
----
 
 👨‍💻 Happy Coding!
 ```
 
-This will display nicely on GitHub and provide all necessary details for users. 🚀 Let me know if you need any modifications!
