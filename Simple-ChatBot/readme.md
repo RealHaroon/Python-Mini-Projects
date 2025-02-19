@@ -68,7 +68,6 @@ Levi: Goodbye! Have a great day! 😊
 Levi has some fun responses, such as:  
 - `"who is the goat?"` → **"Muhammad Ali 🐐"**  
 - `"who is the greatest fighter of all time?"` → **"Jon Jones is the GOAT 🐐"**  
-- `"will haroon get a girlfriend?"` → **"Well, it's complicated 💀"**  
 
 ## 🔗 Contributing  
 Feel free to fork and improve the chatbot! 🚀  
