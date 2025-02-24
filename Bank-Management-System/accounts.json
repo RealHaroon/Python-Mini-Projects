@@ -1,22 +1,12 @@
 [
     {
         "name": "haroon",
-        "id": 38,
-        "balance": 15000
+        "accountNo": 343434,
+        "balance": 0
     },
     {
         "name": "abbas",
-        "id": 39,
-        "balance": 7000
-    },
-    {
-        "name": "khan",
-        "id": 40,
-        "balance": 9000
-    },
-    {
-        "name": "ahmed",
-        "id": 41,
-        "balance": 12000
+        "accountNo": 3333,
+        "balance": 0
     }
 ]
