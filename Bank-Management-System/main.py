@@ -3,32 +3,72 @@ import os
 
 
 class BankAccount:
-    def __init__(self,acc_No,name,balance=0):
-        self.acc_No=acc_No
-        self.name=name
-        self.balance=balance
-
-    def deposit(self,amount):
-        if amount <=0:
-            print("Invalid Amount!")
+    def __init__(self):
+        self.filePath="Bank-Management-System\\accounts.json"
+        self.loggenInAccount=None
+    
+    def login(self,name,accountNo):
+        if os.path.exists(self.filePath) and os.path.getsize(self.filePath) > 0:
+            with open(self.filePath, "r") as file:
+                try:
+                    accounts = json.load(file)
+                except json.JSONDecodeError:
+                    accounts = []  # If file is empty or corrupted
         else:
-            self.balance +=amount
-            print("Deposit Succesful.")
+            accounts = []
+    
+        for account in accounts:
+            if account["accountNo"] == accountNo and account["name"] == name:
+                self.loggenInAccount=accountNo
+                print("Login Succesful.")
+                return True ,accountNo
+        print("Invalid account Name or Number.")
+        return False
+    
+    def deposit(self,amount):
+        if self.loggenInAccount is None:
+            print("Please login first.")
+            return 
+        with open(self.filePath,"r") as file:
+            accounts=json.load(file)
+        for account in accounts:
+             if account==self.loggenInAccount :
+                 account["balance"] += amount
+                 print ( f"Deposited {amount}")
+                 break
+             
+        with open(self.filePath,"w") as file:
+            json.dump(accounts,file,indent=4)
 
     def withdraw(self,amount):
-        if amount > 0 and amount <= self.balance:
-            self.balance -= amount
-            print("Withdrawal succesful.")
-        else:
-            print("Insufficient balance or invalid amount")
+        if self.loggenInAccount is None:
+            print("Please login first.")
+            return 
+        with open(self.filePath,"r") as file:
+            accounts=json.load(file)
+        for account in accounts:
+             if account==self.loggenInAccount :
+                 account["balance"] -= amount
+                 print ( f"Withdrawn {amount}")
+                 break
+             
+        with open(self.filePath,"w") as file:
+            json.dump(accounts,file,indent=4)
 
-    def checkBalance(self):
-        return self.balance
+    def getBalance(self):
+        if self.loggenInAccount is None:
+            print("Please login first.")
+            return 
+        with open(self.filePath,"r") as file:
+            accounts=json.load(file)
+        for account in accounts:
+             if account==self.loggenInAccount :
+                 print(f"Your current balance is : {account["balance"]}")
+                 break
+                
+
+
     
-    def to_dict(self):
-        dic={ "Account Number":self.acc_No, "Name": self.name , "Balance":self.balance}
-        return dic
-
 class Bank:
     def __init__(self):
         self.filePath="Bank-Management-System\\accounts.json"
@@ -46,7 +86,7 @@ class Bank:
         
         for account in accounts:
             if account["accountNo"] == accountNo:
-                return f"Account with account number {accountNo} already exists"
+                print(f"Account with account number {accountNo} already exists")
         
         new_account={
                     "name":name,
@@ -59,21 +99,18 @@ class Bank:
 
         with open(self.filePath, "w") as file:
             json.dump(accounts, file, indent=4)
-        return f"Account for {name} (Account No: {accountNo}) created successfully."
+        print(  f"Account for {name} (Account No: {accountNo}) created successfully.")
 
 
-name=input("Enter your name")
-accNo=int(input("Enter account number"))
-user=Bank()
-user.createAccount(name, accNo)
+
+
+
+
+
+
             
 
                 
-
-
-
-
-
 
 
 
