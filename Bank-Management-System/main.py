@@ -103,8 +103,55 @@ class Bank:
 
 
 
+def main():
+    bank=Bank()
+    bankAcc=BankAccount()
+    while True:
+        print("**Haroon Bank Management Systems**")
+        print("1. Login:")
+        print("2. Create an account")
+        print("3.Exit")
 
+        inp=input("Enter Your choice (1-3) : ")
+        if inp=="1":
+            print("**Login**")
+            name=input("Enter Your Name: ")
+            acc_num=int(input("Enter Account Number : "))
+            bankAcc.login(name,acc_num)
+            if bankAcc.login():
+                while True:
+                    print("* Your Dashboard *")
+                    print("1. Check Balance")
+                    print("2. Deposite Money")
+                    print("3. Withdraw Money")
+                    print("4. Exit")
+                    inp1=input("Enter Your Choice (1-4) : ")
+                    if inp1=="1":
+                        bankAcc.getBalance()
+                    elif inp1=="2":
+                        print("* Deposit Amount * ")
+                        amount=int(input("Enter Amount: "))
+                        bankAcc.deposit(amount)
+                    elif inp1=="3":
+                        print("* Withdraw Money *")
+                        amount = int(input("Enter Amount: "))
+                        bankAcc.withdraw(amount)
+                    elif inp1=="4":
+                        break
+                    else:
+                        print("Invalid Input")
+                    
+        elif inp=="2":
+            print("** Create an Account **")
+            name=input("Enter Your Name: ")
+            acc_num=int(input("Enter Account Number : "))
+            bank.createAccount(name,acc_num)
+        elif inp=="3":
+            break
+        else:
+            print("Invalid Input!")
 
+main()
 
 
 
